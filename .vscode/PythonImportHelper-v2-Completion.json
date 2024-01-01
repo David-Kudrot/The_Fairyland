@@ -563,6 +563,15 @@
         "documentation": {}
     },
     {
+        "label": "dj_database_url",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dj_database_url",
+        "description": "dj_database_url",
+        "detail": "dj_database_url",
+        "documentation": {}
+    },
+    {
         "label": "environ",
         "kind": 6,
         "isExtraImport": true,
@@ -1010,7 +1019,7 @@
         "kind": 5,
         "importPath": "library_management_system.settings",
         "description": "library_management_system.settings",
-        "peekOfCode": "WSGI_APPLICATION = 'library_management_system.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\nDATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql_psycopg2',\n        'NAME': env(\"DB_NAME\"),\n        'USER': env(\"DB_USER\"),\n        'PASSWORD': env(\"DB_PASSWORD\"),\n        'HOST': env(\"DB_HOST\"),",
+        "peekOfCode": "WSGI_APPLICATION = 'library_management_system.wsgi.application'\n# Database\n# https://docs.djangoproject.com/en/4.2/ref/settings/#databases\n# DATABASES = {\n#     'default': {\n#         'ENGINE': 'django.db.backends.postgresql_psycopg2',\n#         'NAME': env(\"DB_NAME\"),\n#         'USER': env(\"DB_USER\"),\n#         'PASSWORD': env(\"DB_PASSWORD\"),\n#         'HOST': env(\"DB_HOST\"),",
         "detail": "library_management_system.settings",
         "documentation": {}
     },
@@ -1019,7 +1028,7 @@
         "kind": 5,
         "importPath": "library_management_system.settings",
         "description": "library_management_system.settings",
-        "peekOfCode": "DATABASES = {\n    'default': {\n        'ENGINE': 'django.db.backends.postgresql_psycopg2',\n        'NAME': env(\"DB_NAME\"),\n        'USER': env(\"DB_USER\"),\n        'PASSWORD': env(\"DB_PASSWORD\"),\n        'HOST': env(\"DB_HOST\"),\n        'PORT': env(\"DB_PORT\"),\n    }\n}",
+        "peekOfCode": "DATABASES = {\n    'default': dj_database_url.config(\n        # Feel free to alter this value to suit your needs.\n        default='postgres://thefairyland_user:6XQZlN1Q6zLdmBwCQXcyQeKA6y9qrY9c@dpg-cm9heuvqd2ns73dq4d80-a.oregon-postgres.render.com/thefairyland',\n    )\n}\n# Password validation\n# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators\nAUTH_PASSWORD_VALIDATORS = [\n    {",
         "detail": "library_management_system.settings",
         "documentation": {}
     },
