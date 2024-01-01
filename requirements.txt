@@ -4,6 +4,7 @@ blinker
 click
 colorama
 crispy-bootstrap5
+dj-database-url
 Django
 django-crispy-forms
 django-environ
@@ -18,6 +19,7 @@ mss
 mysqlclient
 Pillow
 psycopg2
+psycopg2-binary
 PyAutoGUI
 pycodestyle
 PyGetWindow
@@ -30,5 +32,6 @@ PythonTurtle
 pytweening
 reportlab
 sqlparse
+typing_extensions
 tzdata
 Werkzeug
