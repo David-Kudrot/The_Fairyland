@@ -18,13 +18,28 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 
 # mail send korar function
-def send_mail_to_user(user, subject, template):
+def send_mail_to_user(user, subject, template, added_amount=None):
+    # Retrieve the user account
+    user_account = UserAccountModel.objects.get(user=user)
+    
+    # Calculate the total balance
+    total_balance = user_account.balance
+    
+    # If an added amount is provided, update the balance
+    if added_amount is not None:
+        user_account.balance += added_amount
+        total_balance = user_account.balance
+        user_account.save()
+    
     message = render_to_string(template, {
-        'user': user
+        'user': user,
+        'amount': added_amount,  # Pass the added amount to the template
+        'total_balance': total_balance  # Pass the total balance to the template
     })
     send_email = EmailMultiAlternatives(subject, '', to=[user.email])
     send_email.attach_alternative(message, "text/html")
     send_email.send()
+
 
 
 
@@ -51,6 +66,21 @@ def userLogout(request):
     logout(request)
     return redirect('home')
 
+# @login_required
+# def add_money(request):
+#     form = AddMoneyForm(request.POST or None)
+#     if request.method == 'POST' and form.is_valid():
+#         amount = form.cleaned_data['amount']
+#         user_account = UserAccountModel.objects.get(user=request.user)
+#         user_account.balance += amount
+#         user_account.save()
+#         msg = messages.success(request, f"{amount} added successfully")
+#         #send mail notification
+#         send_mail_to_user(request.user, "Successfully Added Money", "addMoneyMail.html")
+#         return render(request, 'home.html', {'messages': msg})
+    
+#     return render(request, 'add_money.html', {'form': form})
+
 @login_required
 def add_money(request):
     form = AddMoneyForm(request.POST or None)
@@ -60,12 +90,12 @@ def add_money(request):
         user_account.balance += amount
         user_account.save()
         msg = messages.success(request, f"{amount} added successfully")
-        #send mail notification
-        send_mail_to_user(request.user, "Successfully Added Money", "addMoneyMail.html")
+        
+        # Send mail notification with added amount
+        send_mail_to_user(request.user, "Successfully Added Money", "addMoneyMail.html", added_amount=amount)
         return render(request, 'home.html', {'messages': msg})
     
     return render(request, 'add_money.html', {'form': form})
-
 
 
 

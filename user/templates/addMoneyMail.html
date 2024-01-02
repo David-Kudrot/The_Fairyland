@@ -38,11 +38,11 @@
         <h1>Hi, {{ user.first_name }} {{ user.last_name }}</h1>
 
         <p>
-            You have added <strong>${{ amount }}</strong> to your account
+            You have added <strong>Rs.{{ amount }}</strong> to your account
         </p>
 
         <p>
-            Your current account balance is now <strong>${{ user.account.balance}}</strong>.
+            Your current account balance is now <strong>Rs.{{ total_balance }}</strong>.
         </p>
 
         <div class="thank-you">
