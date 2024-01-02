@@ -947,7 +947,7 @@
         "kind": 5,
         "importPath": "library_management_system.settings",
         "description": "library_management_system.settings",
-        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Your secret key\nSECRET_KEY = env(\"SECRET_KEY\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\n# SECRET_KEY = 'django-insecure-kfdm^1#@l3qwd8#03!msp9q-y301z_^v=rqb1c3*&r-dzpneg_'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []",
+        "peekOfCode": "BASE_DIR = Path(__file__).resolve().parent.parent\n# Your secret key\nSECRET_KEY = env(\"SECRET_KEY\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\n# SECRET_KEY = 'django-insecure-kfdm^1#@l3qwd8#03!msp9q-y301z_^v=rqb1c3*&r-dzpneg_'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]",
         "detail": "library_management_system.settings",
         "documentation": {}
     },
@@ -956,7 +956,7 @@
         "kind": 5,
         "importPath": "library_management_system.settings",
         "description": "library_management_system.settings",
-        "peekOfCode": "SECRET_KEY = env(\"SECRET_KEY\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\n# SECRET_KEY = 'django-insecure-kfdm^1#@l3qwd8#03!msp9q-y301z_^v=rqb1c3*&r-dzpneg_'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [",
+        "peekOfCode": "SECRET_KEY = env(\"SECRET_KEY\")\n# Quick-start development settings - unsuitable for production\n# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/\n# SECURITY WARNING: keep the secret key used in production secret!\n# SECRET_KEY = 'django-insecure-kfdm^1#@l3qwd8#03!msp9q-y301z_^v=rqb1c3*&r-dzpneg_'\n# SECURITY WARNING: don't run with debug turned on in production!\nDEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [",
         "detail": "library_management_system.settings",
         "documentation": {}
     },
@@ -965,7 +965,7 @@
         "kind": 5,
         "importPath": "library_management_system.settings",
         "description": "library_management_system.settings",
-        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
+        "peekOfCode": "DEBUG = True\nALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',",
         "detail": "library_management_system.settings",
         "documentation": {}
     },
@@ -974,7 +974,7 @@
         "kind": 5,
         "importPath": "library_management_system.settings",
         "description": "library_management_system.settings",
-        "peekOfCode": "ALLOWED_HOSTS = []\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'books',",
+        "peekOfCode": "ALLOWED_HOSTS = [\"*\"]\n# Application definition\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'books',",
         "detail": "library_management_system.settings",
         "documentation": {}
     },
