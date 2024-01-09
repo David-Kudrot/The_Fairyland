@@ -1280,7 +1280,7 @@
         "kind": 6,
         "importPath": "user.views",
         "description": "user.views",
-        "peekOfCode": "class UserLoginView(LoginView):\n    template_name = 'login.html'\n    def get_success_url(self):\n        return reverse_lazy('home')\n@login_required  \ndef userLogout(request):\n    logout(request)\n    return redirect('home')\n@login_required\ndef add_money(request):",
+        "peekOfCode": "class UserLoginView(LoginView):\n    template_name = 'login.html'\n    def get_success_url(self):\n        return reverse_lazy('home')\n@login_required  \ndef userLogout(request):\n    logout(request)\n    return redirect('home')\n# @login_required\n# def add_money(request):",
         "detail": "user.views",
         "documentation": {}
     },
@@ -1316,7 +1316,7 @@
         "kind": 2,
         "importPath": "user.views",
         "description": "user.views",
-        "peekOfCode": "def send_mail_to_user(user, subject, template):\n    message = render_to_string(template, {\n        'user': user\n    })\n    send_email = EmailMultiAlternatives(subject, '', to=[user.email])\n    send_email.attach_alternative(message, \"text/html\")\n    send_email.send()\n# Create your views here.\nclass RegistrationView(FormView):\n    template_name = 'registration_form.html'",
+        "peekOfCode": "def send_mail_to_user(user, subject, template, added_amount=None):\n    # Retrieve the user account\n    user_account = UserAccountModel.objects.get(user=user)\n    # Calculate the total balance\n    total_balance = user_account.balance\n    # If an added amount is provided, update the balance\n    if added_amount is not None:\n        user_account.balance += added_amount\n        total_balance = user_account.balance\n        user_account.save()",
         "detail": "user.views",
         "documentation": {}
     },
@@ -1325,7 +1325,7 @@
         "kind": 2,
         "importPath": "user.views",
         "description": "user.views",
-        "peekOfCode": "def userLogout(request):\n    logout(request)\n    return redirect('home')\n@login_required\ndef add_money(request):\n    form = AddMoneyForm(request.POST or None)\n    if request.method == 'POST' and form.is_valid():\n        amount = form.cleaned_data['amount']\n        user_account = UserAccountModel.objects.get(user=request.user)\n        user_account.balance += amount",
+        "peekOfCode": "def userLogout(request):\n    logout(request)\n    return redirect('home')\n# @login_required\n# def add_money(request):\n#     form = AddMoneyForm(request.POST or None)\n#     if request.method == 'POST' and form.is_valid():\n#         amount = form.cleaned_data['amount']\n#         user_account = UserAccountModel.objects.get(user=request.user)\n#         user_account.balance += amount",
         "detail": "user.views",
         "documentation": {}
     },
@@ -1334,7 +1334,7 @@
         "kind": 2,
         "importPath": "user.views",
         "description": "user.views",
-        "peekOfCode": "def add_money(request):\n    form = AddMoneyForm(request.POST or None)\n    if request.method == 'POST' and form.is_valid():\n        amount = form.cleaned_data['amount']\n        user_account = UserAccountModel.objects.get(user=request.user)\n        user_account.balance += amount\n        user_account.save()\n        msg = messages.success(request, f\"{amount} added successfully\")\n        #send mail notification\n        send_mail_to_user(request.user, \"Successfully Added Money\", \"addMoneyMail.html\")",
+        "peekOfCode": "def add_money(request):\n    form = AddMoneyForm(request.POST or None)\n    if request.method == 'POST' and form.is_valid():\n        amount = form.cleaned_data['amount']\n        user_account = UserAccountModel.objects.get(user=request.user)\n        user_account.balance += amount\n        user_account.save()\n        msg = messages.success(request, f\"{amount} added successfully\")\n        # Send mail notification with added amount\n        send_mail_to_user(request.user, \"Successfully Added Money\", \"addMoneyMail.html\", added_amount=amount)",
         "detail": "user.views",
         "documentation": {}
     },

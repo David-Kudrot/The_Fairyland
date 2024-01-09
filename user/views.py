@@ -41,9 +41,6 @@ def send_mail_to_user(user, subject, template, added_amount=None):
     send_email.send()
 
 
-
-
-
 # Create your views here.
 class RegistrationView(FormView):
     template_name = 'registration_form.html'
@@ -164,8 +161,12 @@ class BuyBookView(View):
             comments = book.comments.all()  # Fetch all comments related to the book
             
             # Render comment_page.html with book details and comments
-            return render(request, 'comment_page.html', {'book': book, 'comments': comments})
+            # return render(request, 'comment_page.html', {'book': book, 'comments': comments})
+            return redirect('home')
 
+ 
+ 
+ 
     
 
 
